@@ -9,13 +9,17 @@ const assignments = ref([
 const completedAssignments = computed(() => {
   return assignments.value.filter((asg) => asg.completed === true);
 });
+
+const tasksInProgress = computed(() => {
+  return assignments.value.filter((asg) => !asg.completed);
+});
 </script>
 
 <template>
   <section>
     <h2 class="text-3xl py-3 font-bold">Assignment</h2>
     <ul>
-      <li v-for="assignment in assignments" :key="assignment.name">
+      <li v-for="assignment in tasksInProgress" :key="assignment.name">
         <label>
           {{ assignment.name }}
           <input type="checkbox" v-model="assignment.completed" />
