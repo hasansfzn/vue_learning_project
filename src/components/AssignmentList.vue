@@ -32,7 +32,10 @@ const tasksInProgress = computed(() => {
     </p>
     <ul>
       <li v-for="asg in completedAssignments" :key="asg.name">
-        {{ asg.name }}
+        <label
+          >{{ asg.name }}
+          <input type="checkbox" v-model="asg.completed" />
+        </label>
       </li>
     </ul>
   </section>
