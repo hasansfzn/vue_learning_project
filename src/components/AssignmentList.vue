@@ -10,6 +10,9 @@ const completedAssignments = computed(() => {
   return assignments.value.filter((asg) => asg.completed === true);
 });
 
+const anothervar = ref(20);
+const refVar = ref(230);
+
 const tasksInProgress = computed(() => {
   return assignments.value.filter((asg) => !asg.completed);
 });
@@ -18,6 +21,9 @@ const tasksInProgress = computed(() => {
 <template>
   <section>
     <h2 class="text-3xl py-3 font-bold">Assignment</h2>
+    <p v-show="!tasksInProgress.length" class="my-2 text-green-500">
+      All Assignments are done for now.
+    </p>
     <ul>
       <li v-for="assignment in tasksInProgress" :key="assignment.name">
         <label>
@@ -27,8 +33,8 @@ const tasksInProgress = computed(() => {
       </li>
     </ul>
     <h3 class="mt-4 text-gray font-bold text-2xl">Completed Assignments</h3>
-    <p v-if="completedAssignments.length === 0">
-      No Assignments are completed.
+    <p class="my-3" v-if="completedAssignments.length === 0">
+      No Assignments are completed yet.
     </p>
     <ul>
       <li v-for="asg in completedAssignments" :key="asg.name">
