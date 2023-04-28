@@ -1,9 +1,11 @@
 <script setup>
 import ButtonBind from "./components/ButtonBind.vue";
+import AssignmentList from "./components/AssignmentList.vue";
 </script>
 
 <template>
   <ButtonBind />
+  <AssignmentList />
 </template>
 
 <style scoped>
