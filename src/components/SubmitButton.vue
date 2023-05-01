@@ -1,6 +1,7 @@
 <template>
   <div>
     <button
+      class="relative"
       :class="{
         'bg-gray-400 hover:bg-gray-700': type_button === 'primary',
         'bg-blue-400 hover:bg-blue-700': type_button === 'secondary',
@@ -31,6 +32,9 @@ defineProps({
   to {
     transform: rotate(360deg);
   }
+}
+.spinner {
+  color: transparent;
 }
 
 .spinner:before {
