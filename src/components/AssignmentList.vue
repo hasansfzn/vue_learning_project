@@ -10,9 +10,6 @@ const completedAssignments = computed(() => {
   return assignments.value.filter((asg) => asg.completed === true);
 });
 
-const anothervar = ref(20);
-const refVar = ref(230);
-
 const tasksInProgress = computed(() => {
   return assignments.value.filter((asg) => !asg.completed);
 });
