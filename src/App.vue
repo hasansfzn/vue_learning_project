@@ -1,13 +1,26 @@
 <script setup>
+import { ref } from "vue";
 import ButtonBind from "./components/ButtonBind.vue";
 import AssignmentList from "./components/AssignmentList.vue";
 import SubmitButton from "./components/SubmitButton.vue";
+
+let type_button = ref("primary");
 </script>
 
 <template>
   <ButtonBind />
   <AssignmentList />
-  <SubmitButton :processing="true" type="secondary" />
+  <div class="grid place-items-cetner my-5">
+    <label>
+      Select the Button Class:
+      <select v-model="type_button">
+        <option value="primary">Primary</option>
+        <option value="secondary">Secondary</option>
+        <option value="muted">Muted</option>
+      </select>
+    </label>
+  </div>
+  <SubmitButton :processing="true" :type_button="type_button" />
 </template>
 
 <style scoped>
