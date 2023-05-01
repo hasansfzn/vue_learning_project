@@ -1,11 +1,13 @@
 <script setup>
 import ButtonBind from "./components/ButtonBind.vue";
 import AssignmentList from "./components/AssignmentList.vue";
+import SubmitButton from "./components/SubmitButton.vue";
 </script>
 
 <template>
   <ButtonBind />
   <AssignmentList />
+  <SubmitButton :processing="true" type="secondary" />
 </template>
 
 <style scoped>

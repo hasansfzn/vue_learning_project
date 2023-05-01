@@ -4,6 +4,13 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+defineProps({
+  type: {
+    type: String,
+    default: "primary",
+  },
+});
+</script>
 
 <style></style>
