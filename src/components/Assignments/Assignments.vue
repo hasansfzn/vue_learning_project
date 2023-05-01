@@ -16,14 +16,11 @@ const inProgress = computed(() => {
   return assignments.value.filter((asg) => !asg.completed);
 });
 
-const newItem = ref("");
-
-const addAnAssignment = () => {
+const addAnAssignment = (name) => {
   assignments.value.push({
-    name: newItem.value,
+    name: name,
     completed: false,
   });
-  newItem.value = "";
 };
 </script>
 
@@ -37,20 +34,20 @@ const addAnAssignment = () => {
 
     <AssignmentListCmp :assignments="completed" title="Completed Assignments" />
 
-    <!-- <AssignmentForm :assignments="assignments" v-model="assignments" />  -->
-    <form @submit.prevent="addAnAssignment">
+    <AssignmentForm @add="addAnAssignment" />
+    <!-- <form @submit.prevent="addAnAssignment">
       <label class="mb-2 pb-3">Add an Assignment: </label>
       <div class="block">
-        <input type="text" class="p-2" v-model="newItem" />
+        <input type="text" class="p-2 bg-white" v-model="newItem" />
         <button
-          class="btn bg-blue-600 ml-2"
+          class="bg-white p-2 ml-2 text-black rounded-none"
           type="submit"
           :disabled="newItem.length === 0"
         >
           Add Assigment
         </button>
       </div>
-    </form>
+    </form> -->
   </section>
 </template>
 
