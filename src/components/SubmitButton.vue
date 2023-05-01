@@ -19,6 +19,9 @@ defineProps({
     type: String,
     default: "primary",
   },
+  processing: {
+    type: Boolean,
+  },
 });
 </script>
 

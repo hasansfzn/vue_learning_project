@@ -20,7 +20,7 @@ let type_button = ref("primary");
       </select>
     </label>
   </div>
-  <SubmitButton :processing="true" :type_button="type_button" />
+  <SubmitButton processing="false" :type_button="type_button" />
 </template>
 
 <style scoped>
