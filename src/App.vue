@@ -5,6 +5,11 @@ import AssignmentList from "./components/AssignmentList.vue";
 import SubmitButton from "./components/SubmitButton.vue";
 
 let type_button = ref("primary");
+let process = ref(false);
+
+const do_process = () => {
+  process.value = true;
+};
 </script>
 
 <template>
@@ -19,8 +24,12 @@ let type_button = ref("primary");
         <option value="muted">Muted</option>
       </select>
     </label>
+
+    <div class="processing_div">
+      <button class="btn btn-primary-400" @click="do_process">Process</button>
+    </div>
   </div>
-  <SubmitButton processing="false" :type_button="type_button" />
+  <SubmitButton :processing="process" :type_button="type_button" />
 </template>
 
 <style scoped>
