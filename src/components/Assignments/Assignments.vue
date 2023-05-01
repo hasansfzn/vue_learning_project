@@ -1,6 +1,7 @@
 <script setup>
 import AssignmentListCmp from "./AssignmentListCmp.vue";
 import AssignmentForm from "./AssignmentForm.vue";
+import FormAssignment from "./FormAssignment.vue";
 import { ref, computed } from "vue";
 const assignments = ref([
   { name: "Fininsh Project", completed: false },
@@ -34,7 +35,8 @@ const addAnAssignment = (name) => {
 
     <AssignmentListCmp :assignments="completed" title="Completed Assignments" />
 
-    <AssignmentForm @add="addAnAssignment" />
+    <!-- <AssignmentForm @add="addAnAssignment" /> -->
+    <FormAssignment @add="addAnAssignment" />
     <!-- <form @submit.prevent="addAnAssignment">
       <label class="mb-2 pb-3">Add an Assignment: </label>
       <div class="block">
