@@ -23,6 +23,7 @@ const addAnAssignment = () => {
     name: newItem.value,
     completed: false,
   });
+  newItem.value = "";
 };
 </script>
 
@@ -36,14 +37,16 @@ const addAnAssignment = () => {
 
     <AssignmentListCmp :assignments="completed" title="Completed Assignments" />
 
-    {{ assignments }}
-
     <!-- <AssignmentForm :assignments="assignments" v-model="assignments" />  -->
     <form @submit.prevent="addAnAssignment">
       <label class="mb-2 pb-3">Add an Assignment: </label>
       <div class="block">
         <input type="text" class="p-2" v-model="newItem" />
-        <button class="btn bg-blue-600 ml-2" type="submit">
+        <button
+          class="btn bg-blue-600 ml-2"
+          type="submit"
+          :disabled="newItem.length === 0"
+        >
           Add Assigment
         </button>
       </div>
