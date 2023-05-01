@@ -1,5 +1,6 @@
 <script setup>
 import AssignmentListCmp from "./AssignmentListCmp.vue";
+import AssignmentForm from "./AssignmentForm.vue";
 import { ref, computed } from "vue";
 const assignments = ref([
   { name: "Fininsh Project", completed: false },
@@ -15,8 +16,14 @@ const inProgress = computed(() => {
   return assignments.value.filter((asg) => !asg.completed);
 });
 
-console.log(inProgress.value.length);
-console.log(completed.value.length);
+const newItem = ref("");
+
+const addAnAssignment = () => {
+  assignments.value.push({
+    name: newItem.value,
+    completed: false,
+  });
+};
 </script>
 
 <template>
@@ -28,6 +35,19 @@ console.log(completed.value.length);
     />
 
     <AssignmentListCmp :assignments="completed" title="Completed Assignments" />
+
+    {{ assignments }}
+
+    <!-- <AssignmentForm :assignments="assignments" v-model="assignments" />  -->
+    <form @submit.prevent="addAnAssignment">
+      <label class="mb-2 pb-3">Add an Assignment: </label>
+      <div class="block">
+        <input type="text" class="p-2" v-model="newItem" />
+        <button class="btn bg-blue-600 ml-2" type="submit">
+          Add Assigment
+        </button>
+      </div>
+    </form>
   </section>
 </template>
 
