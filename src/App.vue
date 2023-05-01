@@ -15,7 +15,11 @@ const do_process = () => {
 
 <template>
   <ButtonBind />
-  <AssignmentList />
+  <div class="drop-shadow-lg border-slate-200 rounded">
+    <AssignmentLists />
+  </div>
+
+  <!-- <AssignmentList /> -->
   <div class="grid place-items-cetner my-5">
     <label>
       Select the Button Class:
@@ -26,12 +30,11 @@ const do_process = () => {
       </select>
     </label>
 
-    <div class="processing_div">
+    <div class="processing_div mt-2">
       <button class="btn btn-primary-400" @click="do_process">Process</button>
     </div>
   </div>
   <SubmitButton :processing="process" :type_button="type_button" />
-  <AssignmentLists />
 </template>
 
 <style scoped>

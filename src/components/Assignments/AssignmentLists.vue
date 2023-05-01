@@ -1,18 +1,12 @@
-<template>
-  <section class="bg-gray-200 rounded">
-    <Assignments :assignments="assignments" />
-  </section>
-</template>
-
 <script setup>
 import { ref, computed } from "vue";
 import Assignments from "./Assignments.vue";
-
-const assignments = ref([
-  { name: "Fininsh Project", completed: false },
-  { name: "Read DOcs", completed: false },
-  { name: "Turn In Project", completed: false },
-]);
 </script>
+<template>
+  <section class="">
+    <h2 class="my-6 pt-3 text-green-400 font-semibold">Assignemnts to Do</h2>
+    <Assignments />
+  </section>
+</template>
 
 <style></style>

@@ -7,10 +7,14 @@
 </template>
 
 <script setup>
+import { computed, ref } from "vue";
 import Assignment from "./Assignment.vue";
-defineProps({
-  assignments: Array,
-});
+
+const assignments = ref([
+  { name: "Fininsh Project", completed: false },
+  { name: "Read DOcs", completed: false },
+  { name: "Turn In Project", completed: false },
+]);
 
 const completed = computed(() => {
   return assignments.value.filter((asg) => asg.completed === true);
