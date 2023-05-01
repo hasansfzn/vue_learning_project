@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import ButtonBind from "./components/ButtonBind.vue";
-import AssignmentList from "./components/AssignmentList.vue";
+
 import SubmitButton from "./components/SubmitButton.vue";
 import Assignments from "./components/Assignments/Assignments.vue";
 

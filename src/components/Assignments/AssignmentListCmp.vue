@@ -1,23 +1,22 @@
 <template>
-  <Assignment :assignment="inProgress" title="In Progress" />
-  <Assignment :assignment="completed" title="Completed" />
+  <section>
+    <h3 class="text-green-400">{{ title }}</h3>
+    <p v-if="assignments.length === 0">No Assignments Here</p>
+    <ul>
+      <Assignment
+        :assignment="assignment"
+        v-for="assignment in assignments"
+        :key="assignment.name"
+      />
+    </ul>
+  </section>
 </template>
 
 <script setup>
 import Assignment from "./Assignment.vue";
-import { ref, computed } from "vue";
-const assignments = ref([
-  { name: "Fininsh Project", completed: false },
-  { name: "Read DOcs", completed: false },
-  { name: "Turn In Project", completed: false },
-]);
-
-const completed = computed(() => {
-  return assignments.value.filter((asg) => asg.completed === true);
-});
-
-const inProgress = computed(() => {
-  return assignments.value.filter((asg) => !asg.completed);
+defineProps({
+  assignments: Array,
+  title: String,
 });
 </script>
 
