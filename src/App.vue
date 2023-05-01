@@ -3,6 +3,7 @@ import { ref } from "vue";
 import ButtonBind from "./components/ButtonBind.vue";
 import AssignmentList from "./components/AssignmentList.vue";
 import SubmitButton from "./components/SubmitButton.vue";
+import AssignmentLists from "./components/Assignments/AssignmentLists.vue";
 
 let type_button = ref("primary");
 let process = ref(false);
@@ -30,6 +31,7 @@ const do_process = () => {
     </div>
   </div>
   <SubmitButton :processing="process" :type_button="type_button" />
+  <AssignmentLists />
 </template>
 
 <style scoped>
