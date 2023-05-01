@@ -2,7 +2,12 @@
   <section>
     <h3 class="text-green-400">{{ title }}</h3>
     <p v-if="assignments.length === 0">No Assignments Here</p>
-    <ul class="border border-gray-600 p-4 divide-y divide-gray-600">
+    <ul
+      :class="{
+        'border border-gray-600 p-4 divide-y divide-gray-600':
+          assignments.length,
+      }"
+    >
       <Assignment
         :assignment="assignment"
         v-for="assignment in assignments"
