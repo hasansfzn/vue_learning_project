@@ -19,10 +19,11 @@ const inProgress = computed(() => {
   return assignments.value.filter((asg) => !asg.completed);
 });
 
-const addAnAssignment = (name) => {
+const addAnAssignment = (name, tag) => {
   assignments.value.push({
     name: name,
     completed: false,
+    tag: tag,
   });
 };
 </script>
@@ -47,7 +48,10 @@ const addAnAssignment = (name) => {
     />
 
     <!-- <AssignmentForm @add="addAnAssignment" /> -->
-    <AssignmentCreate @add="addAnAssignment" />
+    <AssignmentCreate
+      @add="addAnAssignment"
+      :tags="assignments.map((asg) => asg.tag)"
+    />
     <!-- <form @submit.prevent="addAnAssignment">
       <label class="mb-2 pb-3">Add an Assignment: </label>
       <div class="block">
