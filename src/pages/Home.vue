@@ -1,12 +1,14 @@
 <script setup>
-import AssignmentListCmp from "./AssignmentListCmp.vue";
+import AssignmentListCmp from "../components/Assignments/AssignmentListCmp.vue";
 
-import FormAssignment from "./FormAssignment.vue";
+import FormAssignment from "../components/Assignments/FormAssignment.vue";
 import { ref, computed } from "vue";
 const assignments = ref([
-  { name: "Fininsh Project", completed: false },
-  { name: "Read DOcs", completed: false },
-  { name: "Turn In Project", completed: false },
+  { name: "Fininsh Project", completed: false, tag: "Vue" },
+  { name: "Read DOcs", completed: false, tag: "Git" },
+  { name: "Turn In Project", completed: false, tag: "Js" },
+  { name: "Learn Vue Articles", completed: false, tag: "Vue" },
+  { name: "Github and GitLab", completed: false, tag: "Git" },
 ]);
 
 const completed = computed(() => {

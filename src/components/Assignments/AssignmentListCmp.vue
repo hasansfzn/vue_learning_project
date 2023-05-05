@@ -18,10 +18,15 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import Assignment from "./Assignment.vue";
-defineProps({
+const props = defineProps({
   assignments: Array,
   title: String,
+});
+
+const tags = computed(() => {
+  return new Set(props.assignments.map((asg) => asg.tag));
 });
 </script>
 
