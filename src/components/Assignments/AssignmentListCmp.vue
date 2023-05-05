@@ -1,7 +1,22 @@
 <template>
   <section>
     <h3 class="text-green-400">{{ title }}</h3>
-    <p v-if="assignments.length === 0">No Assignments Here</p>
+    <div class="my-2">
+      <p v-if="!assignments.length">No Assignments Here</p>
+      <div
+        class="flex gap-2 items-center justify-center"
+        v-if="assignments.length"
+      >
+        <button
+          :class="{ 'px-2 py-1 my-2': true }"
+          v-for="tag in tags"
+          :key="tag"
+        >
+          {{ tag }}
+        </button>
+      </div>
+    </div>
+
     <ul
       :class="{
         'border border-gray-600 p-4 divide-y divide-gray-600':
