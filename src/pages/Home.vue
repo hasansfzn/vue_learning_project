@@ -47,7 +47,10 @@ const addAnAssignment = (name) => {
     />
 
     <!-- <AssignmentForm @add="addAnAssignment" /> -->
-    <AssignmentCreate @add="addAnAssignment" />
+    <AssignmentCreate
+      @add="addAnAssignment"
+      :tags="assignments.map((asg) => asg.tag)"
+    />
     <!-- <form @submit.prevent="addAnAssignment">
       <label class="mb-2 pb-3">Add an Assignment: </label>
       <div class="block">
