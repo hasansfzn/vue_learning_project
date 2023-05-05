@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, watch, watchEffect } from "vue";
 import Assignment from "./Assignment.vue";
 const props = defineProps({
   assignments: Array,
@@ -18,10 +18,17 @@ const selectedAssignments = computed(() => {
   if (selectedTag.value == "All") {
     return props.assignments;
   }
-  return props.assignments.filter((asg) => asg.tag === selectedTag.value);
+  const selectedAsgs = props.assignments.filter(
+    (asg) => asg.tag === selectedTag.value
+  );
+  if (!selectedAsgs.length) {
+    selectedTag.value = tags.value[0];
+    return props.assignments;
+  }
+  return selectedAsgs;
 });
 
-console.log("selected Assignments: ", selectedAssignments.value);
+//console.log("selected Assignments: ", selectedAssignments.value);
 </script>
 
 <template>
