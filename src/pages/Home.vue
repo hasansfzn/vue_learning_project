@@ -31,11 +31,20 @@ const addAnAssignment = (name) => {
   <section class="space-y-4">
     <h2 class="text-3xl py-3 font-bold">Assignments to Do</h2>
     <AssignmentListCmp
+      :class="{
+        'shadow shadow-blue-500/40 rounded p-4 m-1': true,
+      }"
       :assignments="inProgress"
       title="In Progress Assignments"
     />
 
-    <AssignmentListCmp :assignments="completed" title="Completed Assignments" />
+    <AssignmentListCmp
+      :class="{
+        'shadow shadow-blue-500/40 rounded p-4 m-1': true,
+      }"
+      :assignments="completed"
+      title="Completed Assignments"
+    />
 
     <!-- <AssignmentForm @add="addAnAssignment" /> -->
     <FormAssignment @add="addAnAssignment" />
