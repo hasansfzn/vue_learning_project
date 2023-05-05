@@ -17,7 +17,7 @@ const selectedAssignments = computed(() => {
     (asg) => asg.tag === selectedTag.value
   );
   if (!selectedAsgs.length) {
-    selectedTag.value = tags.value[0];
+    selectedTag.value = "All";
     return props.assignments;
   }
   return selectedAsgs;
@@ -35,7 +35,19 @@ const selectedAssignments = computed(() => {
         class="flex gap-2 items-center justify-center"
         v-if="assignments.length"
       >
-        <AssignmentTags :initialTags="assignments.map((asg) => asg.tag)" />
+        <!-- 
+        on the below custom tag, AssignmentTags,  we replace these two lines 
+           :selectedTag="selectedTag"
+           @selectTag="selectedTag = $event"   
+          
+        by adding v-model, (v-model is used in custom component) 
+           v-model="seletedTag"
+      -->
+
+        <AssignmentTags
+          :initialTags="assignments.map((asg) => asg.tag)"
+          v-model="selectedTag"
+        />
       </div>
     </div>
 
