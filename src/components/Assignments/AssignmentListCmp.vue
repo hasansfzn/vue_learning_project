@@ -1,18 +1,13 @@
 <script setup>
 import { computed, ref, watch, watchEffect } from "vue";
 import Assignment from "./Assignment.vue";
+import AssignmentTags from "./AssignmentTags.vue";
 const props = defineProps({
   assignments: Array,
   title: String,
 });
 
-const tags = computed(() => {
-  return ["All", ...new Set(props.assignments.map((asg) => asg.tag))];
-});
-
 const selectedTag = ref("All");
-
-// console.log(props.assignments);
 
 const selectedAssignments = computed(() => {
   if (selectedTag.value == "All") {
@@ -40,17 +35,7 @@ const selectedAssignments = computed(() => {
         class="flex gap-2 items-center justify-center"
         v-if="assignments.length"
       >
-        <button
-          :class="[
-            { 'px-2 py-1 my-2': true },
-            { 'border border-blue-400': selectedTag === tag },
-          ]"
-          v-for="tag in tags"
-          :key="tag"
-          @click="selectedTag = tag"
-        >
-          {{ tag }}
-        </button>
+        <AssignmentTags :initialTags="assignments.map((asg) => asg.tag)" />
       </div>
     </div>
 
