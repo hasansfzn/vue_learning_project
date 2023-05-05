@@ -1,8 +1,8 @@
 <template>
-  <li>
-    <label>
+  <li class="">
+    <label class="flex justify-between align-center">
       {{ assignment?.name }}
-      <input type="checkbox" v-model="assignment.completed" />
+      <input type="checkbox" v-model="assignment.completed" class="ml-3" />
     </label>
   </li>
 </template>
