@@ -46,7 +46,7 @@ const selectedAssignments = computed(() => {
 
         <AssignmentTags
           :initialTags="assignments.map((asg) => asg.tag)"
-          v-model="selectedTag"
+          v-model:selectedTag="selectedTag"
         />
       </div>
     </div>

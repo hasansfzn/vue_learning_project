@@ -2,11 +2,11 @@
 import { computed, defineEmits, vModelCheckbox } from "vue";
 const props = defineProps({
   initialTags: Array,
-  modelValue: String,
+  selectedTag: String,
 
   //   as we used v-vModelCheckbox, seletedTag is replaced by modelValue
 });
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:selectedTag"]);
 
 const tags = computed(() => {
   return ["All", ...new Set(props.initialTags)];
@@ -17,11 +17,11 @@ const tags = computed(() => {
   <button
     :class="[
       { 'px-2 py-1 my-2': true },
-      { 'border border-blue-400': modelValue === tag },
+      { 'border border-blue-400': selectedTag === tag },
     ]"
     v-for="tag in tags"
     :key="tag"
-    @click="emit('update:modelValue', tag)"
+    @click="emit('update:selectedTag', tag)"
   >
     {{ tag }}
   </button>
