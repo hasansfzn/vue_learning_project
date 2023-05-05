@@ -19,10 +19,11 @@ const inProgress = computed(() => {
   return assignments.value.filter((asg) => !asg.completed);
 });
 
-const addAnAssignment = (name) => {
+const addAnAssignment = (name, tag) => {
   assignments.value.push({
     name: name,
     completed: false,
+    tag: tag,
   });
 };
 </script>

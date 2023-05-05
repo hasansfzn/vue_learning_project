@@ -9,16 +9,15 @@ const emit = defineEmits(["add"]);
 
 const newItem = ref("");
 
-const addAnAssignment = () => {
-  emit("add", newItem.value);
-  newItem.value = "";
-};
-
 const allTags = computed(() => {
   return [...new Set(props.tags)];
 });
-
 const tagSelected = ref(allTags.value[0]);
+
+const addAnAssignment = () => {
+  emit("add", newItem.value, tagSelected.value);
+  newItem.value = "";
+};
 </script>
 
 <template>
