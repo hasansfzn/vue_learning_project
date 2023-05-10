@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineEmits, vModelCheckbox } from "vue";
+import { computed, defineEmits } from "vue";
 const props = defineProps({
   initialTags: Array,
   selectedTag: String,
