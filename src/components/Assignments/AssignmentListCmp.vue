@@ -52,6 +52,7 @@ const selectedAssignments = computed(() => {
     </div>
 
     <ul
+      class="mb-3"
       :class="{
         'border border-gray-600 p-4 divide-y divide-gray-600':
           assignments.length,
@@ -63,6 +64,7 @@ const selectedAssignments = computed(() => {
         :key="assignment.name"
       />
     </ul>
+    <slot></slot>
   </section>
 </template>
 

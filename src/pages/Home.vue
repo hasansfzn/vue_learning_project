@@ -8,7 +8,7 @@ const assignments = ref([]);
 
 async function fetchAssignments() {
   try {
-    const response = await fetch("http://localhost:3000/assignments");
+    const response = await fetch("http://localhost:3002/assignments");
     if (!response.ok) {
       throw new Error("Failed to fetch assignments");
     }
@@ -48,7 +48,12 @@ const addAnAssignment = (name, tag) => {
         }"
         :assignments="inProgress"
         title="In Progress Assignments"
-      />
+      >
+        <AssignmentCreate
+          @add="addAnAssignment"
+          :tags="assignments.map((asg) => asg.tag)"
+        />
+      </AssignmentListCmp>
 
       <AssignmentListCmp
         :class="{
@@ -59,10 +64,6 @@ const addAnAssignment = (name, tag) => {
       />
 
       <!-- <AssignmentForm @add="addAnAssignment" /> -->
-      <AssignmentCreate
-        @add="addAnAssignment"
-        :tags="assignments.map((asg) => asg.tag)"
-      />
     </div>
 
     <!-- <form @submit.prevent="addAnAssignment">
