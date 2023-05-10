@@ -1,0 +1,10 @@
+{
+  "assignments": [
+    { "name": "Fininsh Project", "completed": false, "tag": "Vue" },
+    { "name": "Read DOcs", "completed": false, "tag": "Git" },
+    { "name": "Turn In Project", "completed": false, "tag": "Js" },
+    { "name": "Learn Vue Articles", "completed": false, "tag": "Vue" },
+    { "name": "Github and GitLab", "completed": false, "tag": "Git" },
+    { "name": "Laravel and PHP", "completed": false, "tag": "PhP" }
+  ]
+}
