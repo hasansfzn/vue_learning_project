@@ -2,14 +2,24 @@
 import AssignmentCreate from "../components/Assignments/AssignmentCreate.vue";
 import AssignmentListCmp from "../components/Assignments/AssignmentListCmp.vue";
 
-import { ref, computed } from "vue";
-const assignments = ref([
-  { name: "Fininsh Project", completed: false, tag: "Vue" },
-  { name: "Read DOcs", completed: false, tag: "Git" },
-  { name: "Turn In Project", completed: false, tag: "Js" },
-  { name: "Learn Vue Articles", completed: false, tag: "Vue" },
-  { name: "Github and GitLab", completed: false, tag: "Git" },
-]);
+import { ref, computed, onMounted } from "vue";
+
+const assignments = ref([]);
+
+async function fetchAssignments() {
+  try {
+    const response = await fetch("http://localhost:3000/assignments");
+    if (!response.ok) {
+      throw new Error("Failed to fetch assignments");
+    }
+    const assignmentData = await response.json();
+    assignments.value = assignmentData;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+onMounted(fetchAssignments);
 
 const completed = computed(() => {
   return assignments.value.filter((asg) => asg.completed === true);
