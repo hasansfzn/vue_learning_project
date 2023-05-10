@@ -41,27 +41,30 @@ const addAnAssignment = (name, tag) => {
 <template>
   <section class="space-y-4">
     <h2 class="text-3xl py-3 font-bold">Assignments to Do</h2>
-    <AssignmentListCmp
-      :class="{
-        'shadow shadow-blue-500/40 rounded p-4 m-1': true,
-      }"
-      :assignments="inProgress"
-      title="In Progress Assignments"
-    />
+    <div class="flex justify-center gap-4">
+      <AssignmentListCmp
+        :class="{
+          'shadow shadow-blue-500/40 rounded p-4 m-1': true,
+        }"
+        :assignments="inProgress"
+        title="In Progress Assignments"
+      />
 
-    <AssignmentListCmp
-      :class="{
-        'shadow shadow-blue-500/40 rounded p-4 m-1': true,
-      }"
-      :assignments="completed"
-      title="Completed Assignments"
-    />
+      <AssignmentListCmp
+        :class="{
+          'shadow shadow-blue-500/40 rounded p-4 m-1': true,
+        }"
+        :assignments="completed"
+        title="Completed Assignments"
+      />
 
-    <!-- <AssignmentForm @add="addAnAssignment" /> -->
-    <AssignmentCreate
-      @add="addAnAssignment"
-      :tags="assignments.map((asg) => asg.tag)"
-    />
+      <!-- <AssignmentForm @add="addAnAssignment" /> -->
+      <AssignmentCreate
+        @add="addAnAssignment"
+        :tags="assignments.map((asg) => asg.tag)"
+      />
+    </div>
+
     <!-- <form @submit.prevent="addAnAssignment">
       <label class="mb-2 pb-3">Add an Assignment: </label>
       <div class="block">
