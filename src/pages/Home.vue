@@ -65,6 +65,7 @@ watch(assignments, () => {
         }"
         :assignments="completed"
         title="Completed Assignments"
+        hidable
       />
 
       <!-- <AssignmentForm @add="addAnAssignment" /> -->

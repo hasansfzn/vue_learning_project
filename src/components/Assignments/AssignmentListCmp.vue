@@ -5,6 +5,10 @@ import AssignmentTags from "./AssignmentTags.vue";
 const props = defineProps({
   assignments: Array,
   title: String,
+  hidable: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const selectedTag = ref("All");
@@ -28,11 +32,22 @@ const selectedAssignments = computed(() => {
 
 <template>
   <section>
-    <h3 class="text-green-400">{{ title }}</h3>
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="text-green-400 font-semibold text-lg">
+        {{ title }} ({{ assignments.length }})
+      </h3>
+      <button
+        v-if="hidable"
+        class="text-white hover:text-red-700 focus:outline-none hover:border-none border-none outline-none bg-transparent text-xl"
+      >
+        &times;
+      </button>
+    </div>
+
     <div class="my-2">
       <p v-if="!assignments.length">No Assignments Here</p>
       <div
-        class="flex gap-2 items-center justify-center"
+        class="flex gap-2 items-center justify-start"
         v-if="assignments.length"
       >
         <!-- 
@@ -52,7 +67,7 @@ const selectedAssignments = computed(() => {
     </div>
 
     <ul
-      class="mb-3"
+      class="mb-3 mt-2"
       :class="{
         'border border-gray-600 p-4 divide-y divide-gray-600':
           assignments.length,
