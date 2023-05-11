@@ -32,7 +32,11 @@ const emit = defineEmits(["hideAssignment"]);
 </script>
 
 <template>
-  <section>
+  <section
+    :class="{
+      'shadow shadow-blue-500/40 rounded-lg  p-4 m-1 w-96 border border-gray-600 bg-gray-700': true,
+    }"
+  >
     <div class="flex justify-between items-center mb-3">
       <h3 class="text-green-400 font-semibold text-lg">
         {{ title }} ({{ assignments.length }})
