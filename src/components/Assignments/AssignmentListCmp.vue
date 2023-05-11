@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref, watch, watchEffect } from "vue";
 import Assignment from "./Assignment.vue";
+import AssignmentCard from "./AssignmentCard.vue";
 import AssignmentTags from "./AssignmentTags.vue";
 const props = defineProps({
   assignments: Array,
@@ -32,11 +33,7 @@ const emit = defineEmits(["hideAssignment"]);
 </script>
 
 <template>
-  <section
-    :class="{
-      'shadow shadow-blue-500/40 rounded-lg  p-4 m-1 w-96 border border-gray-600 bg-gray-700': true,
-    }"
-  >
+  <AssignmentCard>
     <div class="flex justify-between items-center mb-3">
       <h3 class="text-green-400 font-semibold text-lg">
         {{ title }} ({{ assignments.length }})
@@ -86,7 +83,7 @@ const emit = defineEmits(["hideAssignment"]);
       />
     </ul>
     <slot></slot>
-  </section>
+  </AssignmentCard>
 </template>
 
 <style scoped></style>

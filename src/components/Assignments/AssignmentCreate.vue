@@ -27,13 +27,13 @@ const addAnAssignment = () => {
     <div class="flex items-center mt-2">
       <input
         type="text"
-        class="text-white p-2"
-        placeholder="add an assignment"
+        class="text-gray-800 bg-white p-2"
+        placeholder="Enter an assignment"
         v-model="newItem"
       />
       <input
         type="text"
-        class="text-white p-2 w-1/3 border-l-4"
+        class="text-gray-800 bg-white p-2 w-1/3 border-l-4 border-gray-800"
         placeholder="Tag?"
         :list="allTags"
         v-model="tagSelected"
@@ -51,7 +51,7 @@ const addAnAssignment = () => {
       </select> -->
       <button
         type="submit "
-        class="p-2 ml-2 bg-white text-gray-500"
+        class="p-2 ml-2 border-none bg-white text-gray-500 rounded-none"
         :disabled="!newItem.length"
       >
         Add
