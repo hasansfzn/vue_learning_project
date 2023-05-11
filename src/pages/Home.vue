@@ -2,7 +2,7 @@
 import AssignmentCreate from "../components/Assignments/AssignmentCreate.vue";
 import AssignmentListCmp from "../components/Assignments/AssignmentListCmp.vue";
 
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 
 const assignments = ref([]);
 
@@ -36,6 +36,10 @@ const addAnAssignment = (name, tag) => {
     tag: tag,
   });
 };
+
+watch(assignments, () => {
+  console.log(assignments.value);
+});
 </script>
 
 <template>

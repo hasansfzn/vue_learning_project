@@ -8,34 +8,47 @@ const props = defineProps({
 const emit = defineEmits(["add"]);
 
 const newItem = ref("");
+const tagSelected = ref("");
 
 const allTags = computed(() => {
   return [...new Set(props.tags)];
 });
-const tagSelected = ref(allTags.value[0]);
 
 const addAnAssignment = () => {
   emit("add", newItem.value, tagSelected.value);
   newItem.value = "";
+  tagSelected.value = "";
 };
 </script>
 
 <template>
   <form @submit.prevent="addAnAssignment">
-    <label>Add an Assignment: </label>
-    <div class="flex items-center">
+    <label class="">Add an Assignment: </label>
+    <div class="flex items-center mt-2">
       <input
         type="text"
         class="text-white p-2"
         placeholder="add an assignment"
         v-model="newItem"
       />
-      <label for="selectTag" class="ms-2"> Tag: </label>
+      <input
+        type="text"
+        class="text-white p-2 w-1/3 border-l-4"
+        placeholder="Tag?"
+        :list="allTags"
+        v-model="tagSelected"
+      />
+      <datalist :id="allTags">
+        <option v-for="tag in allTags" :key="tag" :value="tag">
+          {{ tag }}
+        </option>
+      </datalist>
+      <!-- <label for="selectTag" class="ms-2"> Tag: </label>
       <select id="selectTag" v-model="tagSelected" class="p-2 me-2">
         <option v-for="tag in allTags" :value="tag" :key="tag">
           {{ tag }}
         </option>
-      </select>
+      </select> -->
       <button
         type="submit "
         class="p-2 ml-2 bg-white text-gray-500"
