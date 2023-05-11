@@ -23,7 +23,7 @@ const addAnAssignment = () => {
 <template>
   <form @submit.prevent="addAnAssignment">
     <label>Add an Assignment: </label>
-    <div class="block">
+    <div class="flex items-center">
       <input
         type="text"
         class="text-white p-2"

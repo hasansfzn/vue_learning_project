@@ -44,7 +44,7 @@ const addAnAssignment = (name, tag) => {
     <div class="flex justify-center gap-4">
       <AssignmentListCmp
         :class="{
-          'shadow shadow-blue-500/40 rounded p-4 m-1': true,
+          'shadow shadow-blue-500/40 rounded p-4 m-1 w-96': true,
         }"
         :assignments="inProgress"
         title="In Progress Assignments"
@@ -57,7 +57,7 @@ const addAnAssignment = (name, tag) => {
 
       <AssignmentListCmp
         :class="{
-          'shadow shadow-blue-500/40 rounded p-4 m-1': true,
+          'shadow shadow-blue-500/40 rounded p-4 m-1 w-96': true,
         }"
         :assignments="completed"
         title="Completed Assignments"
