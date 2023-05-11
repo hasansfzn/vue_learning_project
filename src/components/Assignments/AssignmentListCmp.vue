@@ -27,6 +27,7 @@ const selectedAssignments = computed(() => {
   return selectedAsgs;
 });
 
+const emit = defineEmits(["hideAssignment"]);
 //console.log("selected Assignments: ", selectedAssignments.value);
 </script>
 
@@ -38,6 +39,7 @@ const selectedAssignments = computed(() => {
       </h3>
       <button
         v-if="hidable"
+        @click="emit('hideAssignment')"
         class="text-white hover:text-red-700 focus:outline-none hover:border-none border-none outline-none bg-transparent text-xl"
       >
         &times;
@@ -83,4 +85,4 @@ const selectedAssignments = computed(() => {
   </section>
 </template>
 
-<style></style>
+<style scoped></style>

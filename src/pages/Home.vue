@@ -5,6 +5,7 @@ import AssignmentListCmp from "../components/Assignments/AssignmentListCmp.vue";
 import { ref, computed, onMounted, watch } from "vue";
 
 const assignments = ref([]);
+const showCompleted = ref(true);
 
 async function fetchAssignments() {
   try {
@@ -37,9 +38,9 @@ const addAnAssignment = (name, tag) => {
   });
 };
 
-watch(assignments, () => {
-  console.log(assignments.value);
-});
+// watch(assignments, () => {
+//   console.log(assignments.value);
+// });
 </script>
 
 <template>
@@ -58,15 +59,18 @@ watch(assignments, () => {
           :tags="assignments.map((asg) => asg.tag)"
         />
       </AssignmentListCmp>
-
-      <AssignmentListCmp
-        :class="{
-          'shadow shadow-blue-500/40 rounded p-4 m-1 w-96': true,
-        }"
-        :assignments="completed"
-        title="Completed Assignments"
-        hidable
-      />
+      <transition name="fade">
+        <AssignmentListCmp
+          v-if="showCompleted"
+          :class="{
+            'shadow shadow-blue-500/40 rounded p-4 m-1 w-96': true,
+          }"
+          :assignments="completed"
+          title="Completed Assignments"
+          hidable
+          @hideAssignment="showCompleted = !showCompleted"
+        />
+      </transition>
 
       <!-- <AssignmentForm @add="addAnAssignment" /> -->
     </div>
@@ -87,4 +91,11 @@ watch(assignments, () => {
   </section>
 </template>
 
-<style></style>
+<style>
+.fade-leave-active {
+  transition: opacity 2s ease-in-out;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
