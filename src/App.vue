@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
-import Home from "./pages/Home.vue";
+
+import HomeView from "./views/HomeView.vue";
 import ButtonBind from "./components/ButtonBind.vue";
 
 import SubmitButton from "./components/SubmitButton.vue";
@@ -16,7 +17,7 @@ const do_process = () => {
 <template>
   <ButtonBind />
   <div class="drop-shadow-lg border-slate-200 rounded">
-    <Home />
+    <HomeView />
   </div>
 
   <!-- <AssignmentList /> -->
