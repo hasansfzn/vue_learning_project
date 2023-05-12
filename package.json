@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite & json-server --watch db.json -p 3002",
     "build": "vite build",
-    "preview": "vite preview",
-    "serve-json": "json-server --watch db.json"
+    "preview": "vite preview"
   },
   "dependencies": {
     "tailwind": "^4.0.0",

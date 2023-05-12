@@ -2,13 +2,14 @@
 import AssignmentCreate from "../components/Assignments/AssignmentCreate.vue";
 import AssignmentListCmp from "../components/Assignments/AssignmentListCmp.vue";
 
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 
 const assignments = ref([]);
+const showCompleted = ref(true);
 
 async function fetchAssignments() {
   try {
-    const response = await fetch("http://localhost:3000/assignments");
+    const response = await fetch("http://localhost:3002/assignments");
     if (!response.ok) {
       throw new Error("Failed to fetch assignments");
     }
@@ -36,32 +37,38 @@ const addAnAssignment = (name, tag) => {
     tag: tag,
   });
 };
+
+// watch(assignments, () => {
+//   console.log(assignments.value);
+// });
 </script>
 
 <template>
   <section class="space-y-4">
     <h2 class="text-3xl py-3 font-bold">Assignments to Do</h2>
-    <AssignmentListCmp
-      :class="{
-        'shadow shadow-blue-500/40 rounded p-4 m-1': true,
-      }"
-      :assignments="inProgress"
-      title="In Progress Assignments"
-    />
+    <div class="flex justify-center gap-4">
+      <AssignmentListCmp
+        :assignments="inProgress"
+        title="In Progress Assignments"
+      >
+        <AssignmentCreate
+          @add="addAnAssignment"
+          :tags="assignments.map((asg) => asg.tag)"
+        />
+      </AssignmentListCmp>
+      <transition name="fade">
+        <AssignmentListCmp
+          v-if="showCompleted"
+          :assignments="completed"
+          title="Completed Assignments"
+          hidable
+          @hideAssignment="showCompleted = !showCompleted"
+        />
+      </transition>
 
-    <AssignmentListCmp
-      :class="{
-        'shadow shadow-blue-500/40 rounded p-4 m-1': true,
-      }"
-      :assignments="completed"
-      title="Completed Assignments"
-    />
+      <!-- <AssignmentForm @add="addAnAssignment" /> -->
+    </div>
 
-    <!-- <AssignmentForm @add="addAnAssignment" /> -->
-    <AssignmentCreate
-      @add="addAnAssignment"
-      :tags="assignments.map((asg) => asg.tag)"
-    />
     <!-- <form @submit.prevent="addAnAssignment">
       <label class="mb-2 pb-3">Add an Assignment: </label>
       <div class="block">
@@ -78,4 +85,11 @@ const addAnAssignment = (name, tag) => {
   </section>
 </template>
 
-<style></style>
+<style>
+.fade-leave-active {
+  transition: opacity 2s ease-in-out;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
