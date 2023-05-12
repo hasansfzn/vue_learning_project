@@ -14,17 +14,19 @@ const tags = computed(() => {
 </script>
 
 <template>
-  <button
-    :class="[
-      { 'px-2 py-1 my-2': true },
-      { 'border border-blue-400': selectedTag === tag },
-    ]"
-    v-for="tag in tags"
-    :key="tag"
-    @click="emit('update:selectedTag', tag)"
-  >
-    {{ tag }}
-  </button>
+  <div class="flex items-center justify-start gap-2 flex-wrap my-2">
+    <button
+      :class="[
+        { 'px-2 py-1 ': true },
+        { 'border border-blue-400': selectedTag === tag },
+      ]"
+      v-for="tag in tags"
+      :key="tag"
+      @click="emit('update:selectedTag', tag)"
+    >
+      {{ tag }}
+    </button>
+  </div>
 </template>
 
 <style></style>
