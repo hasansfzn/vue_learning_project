@@ -1,4 +1,5 @@
 <script setup>
+import utils from "../utils";
 import AssignmentCreate from "../components/Assignments/AssignmentCreate.vue";
 import AssignmentListCmp from "../components/Assignments/AssignmentListCmp.vue";
 import AssignmentCard from "../components/Assignments/AssignmentCard.vue";
@@ -7,17 +8,23 @@ import { ref, computed, onMounted, watch } from "vue";
 
 const assignments = ref([]);
 const showCompleted = ref(true);
+const { saveDataToLocal, getDataFromLocal } = utils;
 
 async function fetchAssignments() {
-  try {
-    const response = await fetch("http://localhost:3002/assignments");
-    if (!response.ok) {
-      throw new Error("Failed to fetch assignments");
+  if (getDataFromLocal().length) {
+    assignments.value = [...getDataFromLocal()];
+  } else {
+    try {
+      const response = await fetch("http://localhost:3002/assignments");
+      if (!response.ok) {
+        throw new Error("Failed to fetch assignments");
+      }
+      const assignmentData = await response.json();
+      assignments.value = assignmentData;
+      saveDataToLocal(assignments.value);
+    } catch (error) {
+      console.error(error);
     }
-    const assignmentData = await response.json();
-    assignments.value = assignmentData;
-  } catch (error) {
-    console.error(error);
   }
 }
 
@@ -37,6 +44,7 @@ const addAnAssignment = (name, tag) => {
     completed: false,
     tag: tag,
   });
+  saveDataToLocal(assignments.value);
 };
 
 // watch(assignments, () => {
