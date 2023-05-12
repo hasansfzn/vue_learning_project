@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import { RouterLink, RouterView } from "vue-router";
 
 import HomeView from "./views/HomeView.vue";
 import ButtonBind from "./components/ButtonBind.vue";
@@ -15,12 +16,20 @@ const do_process = () => {
 </script>
 
 <template>
-  <ButtonBind />
+  <header>
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+    </nav>
+  </header>
+  <!-- <ButtonBind /> -->
   <div class="drop-shadow-lg border-slate-200 rounded">
     <HomeView />
   </div>
 
   <!-- <AssignmentList /> -->
+  <!--
+
   <div class="grid place-items-cetner my-5">
     <label>
       Select the Button Class:
@@ -36,6 +45,8 @@ const do_process = () => {
     </div>
   </div>
   <SubmitButton :processing="process" :type_button="type_button" />
+
+  -->
 </template>
 
 <style scoped>
