@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite & json-server --watch db.json -p 3002",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:unit": "vitest --environment jsdom",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "tailwind": "^4.0.0",
@@ -16,9 +19,11 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
+    "jsdom": "^22.0.0",
     "json-server": "^0.17.3",
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vitest": "^0.31.0"
   }
 }

@@ -17,14 +17,15 @@ const do_process = () => {
 
 <template>
   <header>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+    <nav class="text-decoration-none text-gray-500">
+      <RouterLink active-class="active" to="/">Home</RouterLink>
+      <RouterLink active-class="active" to="/about">About</RouterLink>
     </nav>
   </header>
   <!-- <ButtonBind /> -->
   <div class="drop-shadow-lg border-slate-200 rounded">
-    <HomeView />
+    <!-- <HomeView /> -->
+    <RouterView />
   </div>
 
   <!-- <AssignmentList /> -->
@@ -50,16 +51,8 @@ const do_process = () => {
 </template>
 
 <style scoped>
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.active {
+  font-weight: 500;
+  color: tomato;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-} */
 </style>
