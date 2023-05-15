@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from "vue";
-import Home from "./pages/Home.vue";
+import { RouterLink, RouterView } from "vue-router";
+
+import HomeView from "./views/HomeView.vue";
 import ButtonBind from "./components/ButtonBind.vue";
 
 import SubmitButton from "./components/SubmitButton.vue";
@@ -14,12 +16,21 @@ const do_process = () => {
 </script>
 
 <template>
-  <ButtonBind />
+  <header>
+    <nav class="text-decoration-none text-gray-500">
+      <RouterLink active-class="active" to="/">Home</RouterLink>
+      <RouterLink active-class="active" to="/about">About</RouterLink>
+    </nav>
+  </header>
+  <!-- <ButtonBind /> -->
   <div class="drop-shadow-lg border-slate-200 rounded">
-    <Home />
+    <!-- <HomeView /> -->
+    <RouterView />
   </div>
 
   <!-- <AssignmentList /> -->
+  <!--
+
   <div class="grid place-items-cetner my-5">
     <label>
       Select the Button Class:
@@ -35,19 +46,13 @@ const do_process = () => {
     </div>
   </div>
   <SubmitButton :processing="process" :type_button="type_button" />
+
+  -->
 </template>
 
 <style scoped>
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.active {
+  font-weight: 500;
+  color: tomato;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-} */
 </style>
