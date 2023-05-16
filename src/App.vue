@@ -2,8 +2,8 @@
 import { ref } from "vue";
 import { RouterLink, RouterView } from "vue-router";
 
-import HomeView from "./views/HomeView.vue";
-import ButtonBind from "./components/ButtonBind.vue";
+import HomeView from "@/views/HomeView.vue";
+import ButtonBind from "@/components/ButtonBind.vue";
 
 import SubmitButton from "./components/SubmitButton.vue";
 
