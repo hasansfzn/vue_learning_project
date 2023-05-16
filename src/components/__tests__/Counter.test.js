@@ -19,9 +19,22 @@ describe("Counter", () => {
     // expect(wrapper.find("#increment")).toMatchSnapshot();
   });
 
-  it("Should Increment", async () => {
+  it("Should Decrement", async () => {
     await wrapper.find("#decrement").trigger("click");
     expect(wrapper.html()).toContain("Counter is : 0");
     // expect(wrapper.find("#increment")).toMatchSnapshot();
+  });
+
+  it("Should Content Input Items", async () => {
+    // const wrapper = mount(CounterView)
+    expect(wrapper.find("#message").exists()).toBeTruthy();
+    expect(wrapper.find("input[type='text']").exists()).toBeTruthy();
+    expect(wrapper.find("#inputMessage").exists()).toBeTruthy();
+  });
+
+  it("should change the message on H2 Tag", async () => {
+    await wrapper.find("input[type='text']").setValue("Learn Vue");
+    await wrapper.find("#inputMessage").trigger("click");
+    expect(wrapper.find("#message").text()).toEqual("Learn Vue");
   });
 });

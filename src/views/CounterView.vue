@@ -20,12 +20,33 @@
       </button>
     </div>
   </div>
+  <div class="mt-5 pt-3">
+    <h2 class="mt-4 font-bold" id="message">{{ msg }}</h2>
+    <div class="flex">
+      <input
+        type="text"
+        v-model="inputMsg"
+        class="mt-2"
+        placeholder="Enter a Message"
+      />
+      <button
+        id="inputMessage"
+        @click="msg = inputMsg"
+        class="btn shadow shadow-gray-200 ms-2"
+      >
+        Save
+      </button>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
 const counter = ref(0);
+
+const msg = ref("");
+const inputMsg = ref("");
 
 const increase = () => {
   counter.value++;
