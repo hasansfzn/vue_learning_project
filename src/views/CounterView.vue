@@ -42,17 +42,17 @@
   <div class="mt-7 p-4 shadow shadow-gray-500">
     <div class="flex gap-2 mb-3">
       <p>What is your favorite food?</p>
-      <input type="text" v-model="food" @input="setToLocal('food', food)" />
+      <input type="text" v-model="food" />
     </div>
     <div class="flex gap-2">
       <p>What is your age?</p>
-      <input type="number" v-model="age" @input="setToLocal('age', age)" />
+      <input type="number" v-model="age" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 const counter = ref(0);
 
@@ -73,6 +73,19 @@ const age = ref(localStorage.getItem("age"));
 const setToLocal = (key, value) => {
   localStorage.setItem(key, value);
 };
+
+watch(food, (val) => {
+  setToLocal("food", val);
+});
+
+watch(age, (newAge) => {
+  setToLocal("age", newAge);
+});
+
+setTimeout(() => {
+  food.value = "Changed Food";
+  age.value = 90;
+}, 3000);
 </script>
 
 <style></style>
