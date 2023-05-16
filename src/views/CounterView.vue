@@ -5,13 +5,15 @@
     </h2>
     <div class="flex items-center justify-between gap-4">
       <button
-        class="p-2 btn btn-primary rounded-2 border shadow shadow-gray-200"
+        id="increment"
+        class="p-2 btn rounded-2 border shadow shadow-gray-200"
         @click="increase"
       >
         Increment
       </button>
       <button
-        class="p-2 btn btn-danger rounded-2 border shadow shadow-gray-200"
+        id="decrement"
+        class="p-2 btn rounded-2 border shadow shadow-gray-200"
         @click="decrease"
       >
         Decrement

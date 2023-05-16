@@ -14,7 +14,12 @@ describe("Counter", () => {
   });
 
   it("Should Increment", async () => {
-    await wrapper.find("button").trigger("click");
+    await wrapper.find("#increment").trigger("click");
     expect(wrapper.html()).toContain("Counter is : 1");
+  });
+
+  it("Should Increment", async () => {
+    await wrapper.find("#decrement").trigger("click");
+    expect(wrapper.html()).toContain("Counter is : 0");
   });
 });
