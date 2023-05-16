@@ -13,7 +13,7 @@ const { flashMessage } = useFlash();
     </h2>
     <slot></slot>
 
-    <div class="flex items0-center justify-center" v-if="$slots.buttonFlash">
+    <div class="flex items-center justify-center" v-if="$slots.buttonFlash">
       <button
         class="btn shadow shadow-gray-200 p-2 mt-4"
         @click="flashMessage('This from MAIN porps')"

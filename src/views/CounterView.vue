@@ -38,6 +38,17 @@
       </button>
     </div>
   </div>
+
+  <div class="mt-7 p-4 shadow shadow-gray-500">
+    <div class="flex gap-2 mb-3">
+      <p>What is your favorite food?</p>
+      <input type="text" v-model="food" @input="setToLocal('food', food)" />
+    </div>
+    <div class="flex gap-2">
+      <p>What is your age?</p>
+      <input type="number" v-model="age" @input="setToLocal('age', age)" />
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -53,6 +64,14 @@ const increase = () => {
 };
 const decrease = () => {
   if (counter.value > 0) counter.value--;
+};
+
+//localstorage
+const food = ref(localStorage.getItem("food"));
+const age = ref(localStorage.getItem("age"));
+
+const setToLocal = (key, value) => {
+  localStorage.setItem(key, value);
 };
 </script>
 
