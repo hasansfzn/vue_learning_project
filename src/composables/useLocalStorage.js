@@ -14,10 +14,10 @@ export function useLocalStorage(key, stored_item) {
   });
 
   function saveToLocal() {
-    if (stored_item.value === "") {
+    localStorage.setItem(key, stored_item.value);
+    if (stored_item.value === "" || null) {
       localStorage.removeItem(key);
     }
-    localStorage.setItem(key, stored_item.value);
   }
 
   return stored_item;
