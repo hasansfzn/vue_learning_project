@@ -17,9 +17,10 @@ const do_process = () => {
 
 <template>
   <header>
-    <nav class="text-decoration-none text-gray-500">
+    <nav class="text-decoration-none text-gray-500 flex gap-2 justify-center">
       <RouterLink active-class="active" to="/">Home</RouterLink>
       <RouterLink active-class="active" to="/about">About</RouterLink>
+      <RouterLink active-class="active" to="/counter">Counter</RouterLink>
     </nav>
   </header>
   <!-- <ButtonBind /> -->
