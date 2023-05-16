@@ -44,15 +44,17 @@
       <p>What is your favorite food?</p>
       <input type="text" v-model="food" />
     </div>
-    <div class="flex gap-2">
+    <!-- <div class="flex gap-2">
       <p>What is your age?</p>
       <input type="number" v-model="age" />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script setup>
 import { ref, watch } from "vue";
+
+import { useLocalStorage } from "@/composables/useLocalStorage";
 
 const counter = ref(0);
 
@@ -67,25 +69,26 @@ const decrease = () => {
 };
 
 //localstorage
-const food = ref(localStorage.getItem("food"));
-const age = ref(localStorage.getItem("age"));
+const food = useLocalStorage("food", "Salad");
 
-const setToLocal = (key, value) => {
-  localStorage.setItem(key, value);
-};
+// const age = ref(localStorage.getItem("age"));
 
-watch(food, (val) => {
-  setToLocal("food", val);
-});
+// const setToLocal = (key, value) => {
+//   localStorage.setItem(key, value);
+// };
 
-watch(age, (newAge) => {
-  setToLocal("age", newAge);
-});
+// watch(food, (val) => {
+//   setToLocal("food", val);
+// });
 
-setTimeout(() => {
-  food.value = "Changed Food";
-  age.value = 90;
-}, 3000);
+// watch(age, (newAge) => {
+//   setToLocal("age", newAge);
+// });
+
+// setTimeout(() => {
+//   food.value = "Changed Food";
+//   age.value = 90;
+// }, 3000);
 </script>
 
 <style></style>
