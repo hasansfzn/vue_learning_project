@@ -1,5 +1,29 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Counter > Should Increment 1`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <button
+    class="p-2 btn rounded-2 border shadow shadow-gray-200"
+    id="increment"
+  >
+     Increment 
+  </button>,
+}
+`;
+
+exports[`Counter > Should Increment 2`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <button
+    class="p-2 btn rounded-2 border shadow shadow-gray-200"
+    id="increment"
+  >
+     Increment 
+  </button>,
+}
+`;
+
 exports[`Counter > Should Render Correctly 1`] = `
 "<div class=\\"m-2\\">
   <h2 class=\\"p-2 text-green-300 shadow-md font-semibold text-xl m-2\\"> Counter is : 0</h2>
