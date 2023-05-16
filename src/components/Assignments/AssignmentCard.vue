@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useFlash } from "@/composables/useFlash";
+
+const { flashMessage } = useFlash();
+</script>
 
 <template>
   <div
@@ -8,6 +12,16 @@
       <slot name="title"></slot>
     </h2>
     <slot></slot>
+
+    <div class="flex items0-center justify-center" v-if="$slots.buttonFlash">
+      <button
+        class="btn shadow shadow-gray-200 p-2 mt-4"
+        @click="flashMessage('This from MAIN porps')"
+      >
+        <slot name="buttonFlash"></slot>
+      </button>
+    </div>
+
     <footer v-if="$slots.footer">
       <h3 class="text-sm absolute bottom-0 mb-4 text-center border-top">
         <slot name="footer"></slot>

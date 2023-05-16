@@ -74,8 +74,10 @@ const addAnAssignment = (name, tag) => {
           @hideAssignment="showCompleted = !showCompleted"
         />
       </transition>
+
       <AssignmentCard>
         <template v-slot:title>Named Slot for Title</template>
+
         <div class="flex items-center flex-col">
           <h2 class="text-xl font-semibold text-white mb-2">
             This is the Default
@@ -85,6 +87,9 @@ const addAnAssignment = (name, tag) => {
             for the div which we are passing from parent, without any template
           </p>
         </div>
+
+        <template #buttonFlash> See Extra </template>
+
         <template v-slot:footer>Footer Added On the Bottom.</template>
       </AssignmentCard>
 
