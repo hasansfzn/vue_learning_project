@@ -1,17 +1,19 @@
 <script setup>
-  import { inject } from "vue";
+  //   import { inject } from "vue";
 
-  let { quizMessage, changeValue } = inject("quizMessage");
+  import { state } from "@/stores/quizStore";
 
-  let quiz = inject("quiz");
+  //   let { quizMessage, changeValue } = inject("quizMessage");
+
+  //   let quiz = inject("quiz");
 </script>
 <template class="m-2">
   <span>This is where the props will show: </span>
   <button
     class="text-red text-sm ms-4"
-    @click="changeValue"
+    @click="state.name = 'Changed QUIZ'"
   >
-    {{ quizMessage }}
+    Change State Value
   </button>
-  <h3 class="m-2 text-md">{{ quiz.name }}</h3>
+  <h3 class="m-2 text-md text-rose-300">{{ state.name }}</h3>
 </template>

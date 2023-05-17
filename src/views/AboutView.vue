@@ -2,16 +2,13 @@
   import { useFlash } from "@/composables/useFlash";
   import Quiz from "@/components/Quiz/Quiz.vue";
   import { ref } from "vue";
-  import { state } from "../stores/quizStore";
 
   const { flashMessage } = useFlash();
 
-  const quizProp = ref("THis is the Message to Show");
-
-  let quiz = {
-    name: "Quiz of Softzino",
-    questions: [],
-  };
+  // let quiz = {
+  //   name: "Quiz of Softzino",
+  //   questions: [],
+  // };
 </script>
 
 <template>
@@ -24,11 +21,7 @@
       beatae.
     </p>
 
-    <Quiz
-      class="py-4"
-      :quizProp="quizProp"
-      :quiz="quiz"
-    />
+    <Quiz class="py-4" />
   </div>
 </template>
 
