@@ -14,7 +14,9 @@
       <button
         id="decrement"
         class="p-2 btn rounded-2 border shadow shadow-gray-200"
+        :class="{ 'cursor-not-allowed': disabledButton }"
         @click="decrease"
+        :disabled="disabledButton"
       >
         Decrement
       </button>
@@ -44,15 +46,18 @@
 import { ref } from "vue";
 
 const counter = ref(0);
+const disabledButton = ref(false);
 
 const msg = ref("");
 const inputMsg = ref("");
 
 const increase = () => {
   counter.value++;
+  if (disabledButton.value) disabledButton.value = false;
 };
 const decrease = () => {
   if (counter.value > 0) counter.value--;
+  else disabledButton.value = true;
 };
 </script>
 

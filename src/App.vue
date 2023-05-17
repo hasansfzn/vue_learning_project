@@ -21,6 +21,10 @@ const do_process = () => {
       <RouterLink active-class="active" to="/">Home</RouterLink>
       <RouterLink active-class="active" to="/about">About</RouterLink>
       <RouterLink active-class="active" to="/counter">Counter</RouterLink>
+      <RouterLink active-class="active" to="/inputToLocalStorage"
+        >Input</RouterLink
+      >
+      <RouterLink active-class="active" to="/textArea">TextArea</RouterLink>
     </nav>
   </header>
   <!-- <ButtonBind /> -->
