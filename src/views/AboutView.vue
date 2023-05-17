@@ -2,6 +2,7 @@
   import { useFlash } from "@/composables/useFlash";
   import Quiz from "@/components/Quiz/Quiz.vue";
   import { ref } from "vue";
+  import { counter } from "@/stores/counter";
 
   const { flashMessage } = useFlash();
 
@@ -20,6 +21,9 @@
       dolor consectetur? Ipsa quae praesentium similique nam nesciunt minus
       beatae.
     </p>
+    <h3 class="text-md text-green-400 p-2">
+      This count is from Counter Page --> {{ counter.count }}
+    </h3>
 
     <Quiz class="py-4" />
   </div>
