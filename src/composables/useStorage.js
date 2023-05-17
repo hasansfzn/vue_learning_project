@@ -10,10 +10,10 @@ export function useStorage(key, storedVal) {
     write();
   }
 
-  watch(storedVal, write);
+  watch(storedVal, write, { deep: true });
 
   function read() {
-    localStorage.getItem(key);
+    return JSON.parse(localStorage.getItem(key));
   }
 
   function remove() {
@@ -21,10 +21,9 @@ export function useStorage(key, storedVal) {
   }
 
   function write() {
-    localStorage.setItem(key, storedVal.value);
     if (storedVal.value === "" || null) {
       remove();
-    }
+    } else localStorage.setItem(key, JSON.stringify(storedVal.value));
   }
 
   return storedVal;

@@ -32,6 +32,16 @@ import { ref, watch } from "vue";
 const food = useStorage("food", "Apple");
 const age = useStorage("age", 20);
 
+/*
+for learning deep watch 
+
+const object = useStorage("obj", { obj: "Object Property" });
+
+setTimeout(() => {
+  object.value.obj = "Changed Value";
+}, 3000);
+*/
+
 // const write = (key, value) => {
 //   localStorage.setItem(key, value);
 // };
