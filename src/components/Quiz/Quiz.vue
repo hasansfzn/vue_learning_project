@@ -7,6 +7,7 @@
 
   const props = defineProps({
     quizProp: String,
+    quiz: Object,
   });
 
   const quizMessage = ref("QUIZ MESSAGE");
@@ -17,6 +18,8 @@
       quizMessage.value = "Changed Message";
     },
   });
+
+  provide("quiz", props.quiz);
 </script>
 
 <template>
