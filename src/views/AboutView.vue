@@ -1,7 +1,11 @@
 <script setup>
-import { useFlash } from "@/composables/useFlash";
+  import { useFlash } from "@/composables/useFlash";
+  import Quiz from "@/components/Quiz/Quiz.vue";
+  import { ref } from "vue";
 
-const { flashMessage } = useFlash();
+  const { flashMessage } = useFlash();
+
+  const quizProp = ref("THis is the Message to Show");
 </script>
 
 <template>
@@ -14,14 +18,10 @@ const { flashMessage } = useFlash();
       beatae.
     </p>
 
-    <div>
-      <button
-        class="btn rounded shadow shadow-gray-200"
-        @click="flashMessage('About Page is UpToDate')"
-      >
-        See About
-      </button>
-    </div>
+    <Quiz
+      class="py-4"
+      :quizProp="quizProp"
+    />
   </div>
 </template>
 
