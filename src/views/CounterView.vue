@@ -40,23 +40,10 @@
       </button>
     </div>
   </div>
-
-  <div class="mt-7 p-4 shadow shadow-gray-500">
-    <div class="flex gap-2 mb-3">
-      <p>What is your favorite food?</p>
-      <input type="text" v-model="food" />
-    </div>
-    <div class="flex gap-2">
-      <p>What is your age?</p>
-      <input type="number" v-model="age" />
-    </div>
-  </div>
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
-
-import { useLocalStorage } from "@/composables/useLocalStorage";
+import { ref } from "vue";
 
 const counter = ref(0);
 const disabledButton = ref(false);
@@ -72,28 +59,6 @@ const decrease = () => {
   if (counter.value > 0) counter.value--;
   else disabledButton.value = true;
 };
-
-//localstorage
-const food = useLocalStorage("food", "Salad");
-const age = useLocalStorage("age", 20);
-// const age = ref(localStorage.getItem("age"));
-
-// const setToLocal = (key, value) => {
-//   localStorage.setItem(key, value);
-// };
-
-// watch(food, (val) => {
-//   setToLocal("food", val);
-// });
-
-// watch(age, (newAge) => {
-//   setToLocal("age", newAge);
-// });
-
-// setTimeout(() => {
-//   food.value = "Changed Food";
-//   age.value = 90;
-// }, 3000);
 </script>
 
 <style></style>
