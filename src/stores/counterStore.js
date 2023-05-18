@@ -1,9 +1,14 @@
 import { defineStore } from "pinia";
 
-export let useCounterStore = defineStorage("counter", {
+// You can name the return value of `defineStore()` anything you want,
+// but it's best to use the name of the store and surround it with `use`
+// and `Store` (e.g. `useUserStore`, `useCartStore`, `useProductStore`)
+// the first argument is a unique id of the store across your application
+export const useCounterStore = defineStore("counterPinia", {
+  // other options...
   state() {
     return {
-      count: 0,
+      count: 5,
     };
   },
 
@@ -20,7 +25,7 @@ export let useCounterStore = defineStorage("counter", {
 
   getters: {
     remaining() {
-      return 10 - this.count;
+      return 15 - this.count;
     },
   },
 });
