@@ -1,5 +1,6 @@
 <script setup>
   import TeamMember from "../components/Team/TeamMember.vue";
+  import teamMembers from "../teamMembers.json";
 </script>
 
 <template>
@@ -41,29 +42,9 @@
       </thead>
       <tbody>
         <TeamMember
-          name="James Doe"
-          email="james@doe.com"
-          status="active"
-        />
-        <TeamMember
-          name="Sarah Doe"
-          email="sarah@doe.com"
-          status="active"
-        />
-        <TeamMember
-          name="Steven Doe"
-          email="steven@doe.com"
-          status="active"
-        />
-        <TeamMember
-          name="Jen Doe"
-          email="Jen@doe.com"
-          status="active"
-        />
-        <TeamMember
-          name="Joe Doe"
-          email="joe@doe.com"
-          status="active"
+          v-for="member in teamMembers"
+          :key="member.id"
+          :member="member"
         />
 
         <!-- <tr class="bg-gray-100 px-12">
