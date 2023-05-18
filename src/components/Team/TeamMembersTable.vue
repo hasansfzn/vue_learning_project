@@ -21,6 +21,12 @@
       />
     </tbody>
   </table>
+  <p
+    v-if="team.spot === team.members.length"
+    class="text-right text-gray-600 italic"
+  >
+    There are no remaining team spots. Upgrade to add more.
+  </p>
 </template>
 
 <style></style>
