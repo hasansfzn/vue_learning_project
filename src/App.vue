@@ -1,37 +1,60 @@
 <script setup>
-import { ref } from "vue";
-import { RouterLink, RouterView } from "vue-router";
+  import { ref } from "vue";
+  import { RouterLink, RouterView } from "vue-router";
 
-import HomeView from "@/views/HomeView.vue";
-import ButtonBind from "@/components/ButtonBind.vue";
+  import HomeView from "@/views/HomeView.vue";
+  import ButtonBind from "@/components/ButtonBind.vue";
 
-import SubmitButton from "./components/SubmitButton.vue";
+  import SubmitButton from "./components/SubmitButton.vue";
 
-let type_button = ref("primary");
-let process = ref(false);
+  let type_button = ref("primary");
+  let process = ref(false);
 
-const do_process = () => {
-  process.value = true;
-};
+  const do_process = () => {
+    process.value = true;
+  };
 </script>
 
 <template>
   <header>
     <nav class="text-decoration-none text-gray-500 flex gap-2 justify-center">
-      <RouterLink active-class="active" to="/">Home</RouterLink>
-      <RouterLink active-class="active" to="/about">About</RouterLink>
-      <RouterLink active-class="active" to="/counter">Counter</RouterLink>
-      <RouterLink active-class="active" to="/inputToLocalStorage"
+      <RouterLink
+        active-class="active"
+        to="/"
+        >Home</RouterLink
+      >
+      <RouterLink
+        active-class="active"
+        to="/about"
+        >About</RouterLink
+      >
+      <RouterLink
+        active-class="active"
+        to="/counter"
+        >Counter</RouterLink
+      >
+      <RouterLink
+        active-class="active"
+        to="/inputToLocalStorage"
         >Input</RouterLink
       >
-      <RouterLink active-class="active" to="/textArea">TextArea</RouterLink>
+      <RouterLink
+        active-class="active"
+        to="/textArea"
+        >TextArea</RouterLink
+      >
+      <RouterLink
+        active-class="active"
+        to="/team"
+        >Team</RouterLink
+      >
     </nav>
   </header>
   <!-- <ButtonBind /> -->
-  <div class="drop-shadow-lg border-slate-200 rounded">
-    <!-- <HomeView /> -->
-    <RouterView />
-  </div>
+  <!-- <div class="drop-shadow-lg border-slate-200 rounded"> -->
+  <!-- <HomeView /> -->
+  <RouterView />
+  <!-- </div> -->
 
   <!-- <AssignmentList /> -->
   <!--
@@ -56,8 +79,8 @@ const do_process = () => {
 </template>
 
 <style scoped>
-.active {
-  font-weight: 500;
-  color: tomato;
-}
+  .active {
+    font-weight: 500;
+    color: tomato;
+  }
 </style>
