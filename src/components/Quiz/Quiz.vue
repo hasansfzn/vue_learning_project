@@ -5,18 +5,25 @@
   import { provide } from "vue";
   import { ref } from "vue";
 
-  const props = defineProps({
-    quizProp: String,
-  });
+  //   const props = defineProps({
+  //     quizProp: String,
+  //     quiz: Object,
+  //   });
 
-  const quizMessage = ref("QUIZ MESSAGE");
+  //   const quizMessage = ref("QUIZ MESSAGE");
 
-  provide("quizMessage", {
-    quizMessage,
-    changeValue: () => {
-      quizMessage.value = "Changed Message";
-    },
-  });
+  //   provide("quizMessage", {
+  //     quizMessage,
+  //     changeValue: () => {
+  //       quizMessage.value = "Changed Message";
+  //     },
+  //   });
+
+  //   provide("quiz", props.quiz);
+
+  import { state } from "@/stores/quizStore";
+
+  console.log(state);
 </script>
 
 <template>
@@ -26,7 +33,7 @@
       Here is the Quiz Component where Provide and Inject dependencies are
       applied
     </h2>
-    <h3 class="text-green-200 p-2">{{ quizMessage }}</h3>
+    <h3 class="text-green-200 p-2">{{ state.name }}</h3>
     <QuizHeader />
     <QuizBody />
     <QuizFooter />
