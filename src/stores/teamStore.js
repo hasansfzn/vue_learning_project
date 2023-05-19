@@ -9,7 +9,10 @@ export let useTeamStore = defineStore("team", {
     };
   },
   actions: {
-    //this is a neive way to fill the store data
+    /**
+     * * this is a neive way to fill the store data
+     */
+
     // fill() {
     //   import("../teamMembers.json").then((r) => {
     //     let data = r.default;
@@ -22,8 +25,9 @@ export let useTeamStore = defineStore("team", {
     //   });
     // },
 
-    //  receive data using the patch option
-
+    /**
+     * * receive data using the patch option
+     */
     // fill() {
     //   import("../teamMembers.json").then((r) => {
     //     let data = r.default;
@@ -36,12 +40,13 @@ export let useTeamStore = defineStore("team", {
     //   });
     // },
 
-    //update the state directly
+    /**
+     * * update the state directly
+     */
 
-    fill() {
-      import("../teamMembers.json").then((r) => {
-        this.$state = r.default;
-      });
+    async fill() {
+      let r = await import("../teamMembers.json");
+      this.$state = r.default;
     },
   },
 });
