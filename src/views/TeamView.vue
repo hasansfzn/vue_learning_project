@@ -7,6 +7,7 @@
   // import team from "../teamMembers.json";
 
   import { useTeamStore } from "../stores/teamStore.js";
+  import { ref, watch } from "vue";
   let team = useTeamStore();
 
   team.fill();
@@ -14,10 +15,16 @@
   setTimeout(() => {
     team.grow(25);
   }, 3000);
+
+  let showModal = ref(false);
+
+  watch(showModal, (newVal) => {
+    console.log(newVal);
+  });
 </script>
 
 <template>
-  <TeamHeader />
+  <TeamHeader @add="showModal = true" />
 
   <div
     class="place-self-center flex flex-col gap-y-3"
@@ -28,7 +35,21 @@
 
   <TeamFooter />
 
-  <TeamAddingModal show />
+  <TeamAddingModal
+    :show="showModal"
+    @close="showModal = false"
+  >
+    <template #header>
+      <h2>Overwritten header of the modal</h2>
+    </template>
+    <template #default>
+      <h3>Hello Modal</h3>
+      <p class="mb-5">
+        Overwritten Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Magnam, fugit.
+      </p>
+    </template>
+  </TeamAddingModal>
 </template>
 
 <style></style>

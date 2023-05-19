@@ -10,9 +10,27 @@
     class="modal-mask"
   >
     <div class="modal-container">
-      <h2>Modal Title</h2>
-      <div>Modal BOdy</div>
-      <footer>Modal Footer</footer>
+      <header>
+        <slot name="header">
+          <h2>Default Modal Title</h2>
+        </slot>
+      </header>
+
+      <slot>
+        <div>Modal BOdy Defaulr</div>
+      </slot>
+
+      <footer>
+        <slot name="footer">
+          <small class="me-2">Default Modal Footer</small>
+          <button
+            @click="$emit('close')"
+            class="btn border-2 rounded-md p-2"
+          >
+            Close
+          </button>
+        </slot>
+      </footer>
     </div>
   </div>
 </template>
