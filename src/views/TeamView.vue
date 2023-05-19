@@ -3,7 +3,12 @@
   import TeamHeader from "../components/Team/TeamHeader.vue";
   import TeamMembersTable from "../components/Team/TeamMembersTable.vue";
   import TeamFooter from "../components/Team/TeamFooter.vue";
-  import team from "../teamMembers.json";
+  // import team from "../teamMembers.json";
+
+  import { useTeamStore } from "../stores/teamStore.js";
+  let team = useTeamStore();
+
+  team.fill();
 </script>
 
 <template>
