@@ -10,22 +10,22 @@
     class="modal-mask"
   >
     <div class="modal-container">
-      <header>
+      <header class="modal-header">
         <slot name="header">
-          <h2>Default Modal Title</h2>
+          <h2 class="text-start font-semibold">Want to add a new member?</h2>
         </slot>
       </header>
 
+      <!-- default slot  -->
       <slot>
         <div>Modal BOdy Defaulr</div>
       </slot>
 
-      <footer>
+      <footer class="modal-footer">
         <slot name="footer">
-          <small class="me-2">Default Modal Footer</small>
           <button
             @click="$emit('close')"
-            class="btn border-2 rounded-md p-2"
+            class="btn border-2 rounded-md py-1 px-2 bg-gray-100 hover:bg-gray-200"
           >
             Close
           </button>
@@ -48,5 +48,18 @@
     width: 80vw;
     max-width: 500px;
     background-color: white;
+    border-radius: 7px;
+  }
+
+  .modal-header {
+    border-bottom: 1px solid #c9c9c9;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+  .modal-footer {
+    border-top: 1px solid #c9c9c9;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
   }
 </style>

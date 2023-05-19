@@ -35,15 +35,20 @@
     :show="showModal"
     @close="showModal = false"
   >
-    <template #header>
+    <!-- <template #header>
       <h2>Overwritten header of the modal</h2>
-    </template>
+    </template> -->
     <template #default>
-      <h3>Hello Modal</h3>
-      <p class="mb-5">
-        Overwritten Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Magnam, fugit.
-      </p>
+      <form>
+        <div class="flex gap-2">
+          <input
+            type="email"
+            class="flex-1 p-2"
+            placeholder="Enter Email..."
+          />
+          <button>Add</button>
+        </div>
+      </form>
     </template>
   </TeamAddingModal>
 </template>
