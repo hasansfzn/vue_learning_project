@@ -4,6 +4,7 @@ import AboutView from "@/views/AboutView.vue";
 import CounterView from "@/views/CounterView.vue";
 import InputToLocal from "@/views/InputToLocal.vue";
 import TextArea from "@/views/TextArea.vue";
+import TeamView from "@/views/TeamView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: "/textArea",
       name: "textArea",
       component: TextArea,
+    },
+    {
+      path: "/team",
+      name: "team",
+      component: TeamView,
     },
   ],
 });

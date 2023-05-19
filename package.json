@@ -12,6 +12,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "pinia": "^2.1.1",
     "start-server-and-test": "^2.0.0",
     "sweetalert2": "^11.7.5",
     "tailwind": "^4.0.0",

@@ -1,6 +1,8 @@
 <script setup>
   import { ref } from "vue";
-  import { counter } from "@/stores/counter";
+  // import { counter } from "@/stores/counter";
+
+  import { useCounterStore } from "../stores/counterStore";
 
   // const counter = ref(0);
   // const disabledButton = ref(false);
@@ -16,27 +18,27 @@
   //   if (counter.value > 0) counter.value--;
   //   else disabledButton.value = true;
   // };
+
+  let counterPinia = useCounterStore();
 </script>
 
 <template>
   <div class="m-2">
     <h2 class="p-2 text-green-300 shadow-md font-semibold text-xl m-2">
-      Counter is : {{ counter.count }}
+      Counter is : {{ counterPinia.count }}
     </h2>
     <div class="flex items-center justify-between gap-4">
       <button
         id="increment"
         class="p-2 btn rounded-2 border shadow shadow-gray-200"
-        @click="counter.increment"
+        @click="counterPinia.increment"
       >
         Increment
       </button>
       <button
         id="decrement"
         class="p-2 btn rounded-2 border shadow shadow-gray-200"
-        :class="{ 'cursor-not-allowed': counter.disabled }"
-        @click="counter.decrement"
-        :disabled="counter.disabled"
+        @click="counterPinia.decrement"
       >
         Decrement
       </button>
