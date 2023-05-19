@@ -3,6 +3,7 @@
   import TeamHeader from "../components/Team/TeamHeader.vue";
   import TeamMembersTable from "../components/Team/TeamMembersTable.vue";
   import TeamFooter from "../components/Team/TeamFooter.vue";
+  import TeamAddingModal from "../components/Team/TeamAddingModal.vue";
   // import team from "../teamMembers.json";
 
   import { useTeamStore } from "../stores/teamStore.js";
@@ -26,6 +27,8 @@
   </div>
 
   <TeamFooter />
+
+  <TeamAddingModal show />
 </template>
 
 <style></style>
