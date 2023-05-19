@@ -9,15 +9,30 @@ export let useTeamStore = defineStore("team", {
     };
   },
   actions: {
+    //this is a neive way to fill the store data
+    // fill() {
+    //   import("../teamMembers.json").then((r) => {
+    //     let data = r.default;
+
+    //     this.name = data.name;
+    //     this.spots = data.spots;
+    //     this.members = data.members;
+
+    //     console.log(this.name, this.spots, this.members);
+    //   });
+    // },
+
+    //  receive data using the patch option
+
     fill() {
       import("../teamMembers.json").then((r) => {
         let data = r.default;
 
-        this.name = data.name;
-        this.spots = data.spots;
-        this.members = data.members;
-
-        console.log(this.name, this.spots, this.members);
+        this.$patch({
+          name: data.name,
+          spots: data.spots,
+          members: data.members,
+        });
       });
     },
   },
