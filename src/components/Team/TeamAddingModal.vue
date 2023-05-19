@@ -4,6 +4,19 @@
   });
 </script>
 
+/** ** The below code is for Transition element, to apply animation on the modal
+component
+<!-- 
+enter-from-class="opacity-0 scale-125"
+enter-to-class="opacity-100 scale-100"
+leave-from-class="opacity-100 scale-100"
+leave-to-class="opacity-0 scale-125"
+enter-active-class="transition duration-300"
+leave-active-class="transition duration-400" 
+-->
+
+*/
+
 <template>
   <Transition
     enter-from-class="opacity-0 scale-125"
@@ -71,4 +84,23 @@
     margin-top: 1rem;
     padding-top: 1rem;
   }
+
+  /* these css are for naming transition modal  */
+
+  /* .modal-enter-from {
+    opacity: 0;
+  }
+  .modal-enter-to {
+    opacity: 100;
+  }
+  .modal-enter-active,
+  .modal-leave-active {
+    transition: opacity 0.5s;
+  }
+  .modal-leave-from {
+    opacity: 100;
+  }
+  .modal-leave-to {
+    opacity: 0;
+  } */
 </style>
