@@ -5,34 +5,43 @@
 </script>
 
 <template>
-  <div
-    v-if="show"
-    class="modal-mask"
+  <Transition
+    enter-from-class="opacity-0 scale-125"
+    enter-to-class="opacity-100 scale-100"
+    leave-from-class="opacity-100 scale-100"
+    leave-to-class="opacity-0 scale-125"
+    enter-active-class="transition duration-300"
+    leave-active-class="transition duration-400"
   >
-    <div class="modal-container">
-      <header class="modal-header">
-        <slot name="header">
-          <h2 class="text-start font-semibold">Want to add a new member?</h2>
-        </slot>
-      </header>
+    <div
+      v-if="show"
+      class="modal-mask"
+    >
+      <div class="modal-container">
+        <header class="modal-header">
+          <slot name="header">
+            <h2 class="text-start font-semibold">Want to add a new member?</h2>
+          </slot>
+        </header>
 
-      <!-- default slot  -->
-      <slot>
-        <div>Modal BOdy Defaulr</div>
-      </slot>
-
-      <footer class="modal-footer">
-        <slot name="footer">
-          <button
-            @click="$emit('close')"
-            class="btn border-2 rounded-md py-1 px-2 bg-gray-100 hover:bg-gray-200"
-          >
-            Close
-          </button>
+        <!-- default slot  -->
+        <slot>
+          <div>Modal BOdy Defaulr</div>
         </slot>
-      </footer>
+
+        <footer class="modal-footer">
+          <slot name="footer">
+            <button
+              @click="$emit('close')"
+              class="btn border-2 rounded-md py-1 px-2 bg-gray-100 hover:bg-gray-200"
+            >
+              Close
+            </button>
+          </slot>
+        </footer>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style>
