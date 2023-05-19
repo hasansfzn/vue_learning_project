@@ -17,10 +17,6 @@
   }, 3000);
 
   let showModal = ref(false);
-
-  watch(showModal, (newVal) => {
-    console.log(newVal);
-  });
 </script>
 
 <template>
