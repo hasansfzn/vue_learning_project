@@ -9,19 +9,23 @@
   let team = useTeamStore();
 
   team.fill();
+
+  setTimeout(() => {
+    team.grow(25);
+  }, 3000);
 </script>
 
 <template>
-  <TeamHeader :team="team" />
+  <TeamHeader />
 
   <div
     class="place-self-center flex flex-col gap-y-3"
     style="width: 725px"
   >
-    <TeamMembersTable :team="team" />
+    <TeamMembersTable />
   </div>
 
-  <TeamFooter :team="team" />
+  <TeamFooter />
 </template>
 
 <style></style>

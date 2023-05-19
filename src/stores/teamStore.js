@@ -48,5 +48,15 @@ export let useTeamStore = defineStore("team", {
       let r = await import("../teamMembers.json");
       this.$state = r.default;
     },
+
+    grow(slot) {
+      this.spots = slot;
+    },
+  },
+
+  getters: {
+    remainingSpots() {
+      return this.spots - this.members.length;
+    },
   },
 });
