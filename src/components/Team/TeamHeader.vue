@@ -1,7 +1,8 @@
 <script setup>
-  defineProps({
-    team: Object,
-  });
+  import { useTeamStore } from "@/stores/teamStore";
+  let team = useTeamStore();
+
+  console.log(team.remainingSpots);
 </script>
 
 <template>
@@ -9,17 +10,17 @@
     <div>
       <button
         class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
-        :disabled="team.members.length === team.spots"
+        :disabled="!team.remainingSpots"
       >
-        Add Member ( {{ team.spots - team.members.length }} Spots Left)
+        Add Member ( {{ team.remainingSpots }} Spots Left)
       </button>
     </div>
     <div>
       <h3 class="inline-flex items-center text-3xl relative">
         <img
-          src=""
+          src="../../assets/smiley.png"
           alt="Smiley"
-          class="mr-2"
+          class="mr-2 w-10 h-10"
         />
         Smiley Team
         <div
