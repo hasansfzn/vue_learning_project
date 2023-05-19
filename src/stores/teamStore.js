@@ -24,15 +24,23 @@ export let useTeamStore = defineStore("team", {
 
     //  receive data using the patch option
 
+    // fill() {
+    //   import("../teamMembers.json").then((r) => {
+    //     let data = r.default;
+
+    //     this.$patch({
+    //       name: data.name,
+    //       spots: data.spots,
+    //       members: data.members,
+    //     });
+    //   });
+    // },
+
+    //update the state directly
+
     fill() {
       import("../teamMembers.json").then((r) => {
-        let data = r.default;
-
-        this.$patch({
-          name: data.name,
-          spots: data.spots,
-          members: data.members,
-        });
+        this.$state = r.default;
       });
     },
   },
