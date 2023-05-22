@@ -47,6 +47,15 @@ export let useTeamStore = defineStore("team", {
       this.$state = r.default;
     },
 
+    addNew(name, email) {
+      this.members.push({
+        name: name,
+        email: email,
+        status: "active",
+        id: this.members.length + 1,
+      });
+    },
+
     grow(slot) {
       this.spots = slot;
     },

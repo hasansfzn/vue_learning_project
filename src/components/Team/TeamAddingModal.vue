@@ -3,9 +3,23 @@
   import Modal from "./Modal.vue";
   import { useTeamStore } from "@/stores/teamStore";
 
+  const emit = defineEmits(["addMember"]);
+
   let team = useTeamStore();
 
   let showModal = ref(false);
+
+  let nameValue = ref("");
+  let emailValue = ref("");
+
+  const addMember = () => {
+    if (nameValue.value != "" && emailValue.value != "") {
+      emit("addMember", nameValue.value, emailValue.value);
+      nameValue.value = "";
+      emailValue.value = "";
+      showModal.value = false;
+    }
+  };
 </script>
 
 <template>
@@ -25,10 +39,17 @@
       <h2>Overwritten header of the modal</h2>
     </template> -->
       <template #default>
-        <form>
+        <form @submit.prevent="addMember">
           <div class="flex gap-2">
             <input
+              type="text"
+              placeholder="Enter Name.."
+              v-model="nameValue"
+              class="p-2"
+            />
+            <input
               type="email"
+              v-model="emailValue"
               class="flex-1 p-2"
               placeholder="Enter Email..."
             />

@@ -4,12 +4,16 @@
   let team = useTeamStore();
 
   // console.log(team.remainingSpots);
+
+  const addMember = (name, email) => {
+    team.addNew(name, email);
+  };
 </script>
 
 <template>
   <header class="flex justify-between mt-8 pt-3">
     <div>
-      <TeamAddingModal />
+      <TeamAddingModal @addMember="addMember" />
     </div>
     <div>
       <h3 class="inline-flex items-center text-3xl relative">
