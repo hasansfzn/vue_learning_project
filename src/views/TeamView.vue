@@ -16,12 +16,10 @@
   setTimeout(() => {
     team.grow(25);
   }, 3000);
-
-  let showModal = ref(false);
 </script>
 
 <template>
-  <TeamHeader @add="showModal = true" />
+  <TeamHeader />
 
   <div
     class="place-self-center flex flex-col gap-y-3"
@@ -31,28 +29,6 @@
   </div>
 
   <TeamFooter />
-  <Teleport to="body">
-    <Modal
-      :show="showModal"
-      @close="showModal = false"
-    >
-      <!-- <template #header>
-      <h2>Overwritten header of the modal</h2>
-    </template> -->
-      <template #default>
-        <form>
-          <div class="flex gap-2">
-            <input
-              type="email"
-              class="flex-1 p-2"
-              placeholder="Enter Email..."
-            />
-            <button>Add</button>
-          </div>
-        </form>
-      </template>
-    </Modal>
-  </Teleport>
 </template>
 
 <style></style>
