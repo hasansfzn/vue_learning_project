@@ -1,6 +1,18 @@
 <script setup>
-  defineProps({
+  import useDetectOutsideClick from "@/composables/useDetectOutsideClick";
+  import { ref } from "vue";
+
+  const props = defineProps({
     show: Boolean,
+  });
+
+  const emit = defineEmits(["close"]);
+
+  const modalRef = ref(null);
+  const exampleComposableText = ref("hello");
+
+  useDetectOutsideClick(modalRef, () => {
+    //detection should be happen but don't work
   });
 </script>
 
@@ -27,10 +39,13 @@ leave-active-class="transition duration-400"
     leave-active-class="transition duration-400"
   >
     <div
-      v-if="show"
+      v-if="props.show"
       class="modal-mask"
     >
-      <div class="modal-container">
+      <div
+        class="modal-container"
+        ref="modalRef"
+      >
         <header class="modal-header">
           <slot name="header">
             <h2 class="text-start font-semibold">Want to add a new member?</h2>
