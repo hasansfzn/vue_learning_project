@@ -3,7 +3,8 @@
   import TeamHeader from "../components/Team/TeamHeader.vue";
   import TeamMembersTable from "../components/Team/TeamMembersTable.vue";
   import TeamFooter from "../components/Team/TeamFooter.vue";
-  import TeamAddingModal from "../components/Team/TeamAddingModal.vue";
+  import Modal from "../components/Team/Modal.vue";
+
   // import team from "../teamMembers.json";
 
   import { useTeamStore } from "../stores/teamStore.js";
@@ -31,7 +32,7 @@
 
   <TeamFooter />
 
-  <TeamAddingModal
+  <Modal
     :show="showModal"
     @close="showModal = false"
   >
@@ -50,7 +51,7 @@
         </div>
       </form>
     </template>
-  </TeamAddingModal>
+  </Modal>
 </template>
 
 <style></style>
