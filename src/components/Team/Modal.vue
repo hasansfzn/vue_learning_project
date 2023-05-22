@@ -2,11 +2,9 @@
   import useDetectOutsideClick from "@/composables/useDetectOutsideClick";
   import { ref } from "vue";
 
-  const props = defineProps({
+  defineProps({
     show: Boolean,
   });
-
-  const emit = defineEmits(["close"]);
 
   const modalRef = ref(null);
   const exampleComposableText = ref("hello");
@@ -39,7 +37,7 @@ leave-active-class="transition duration-400"
     leave-active-class="transition duration-400"
   >
     <div
-      v-if="props.show"
+      v-if="show"
       class="modal-mask"
     >
       <div
